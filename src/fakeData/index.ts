@@ -1,11 +1,11 @@
 const fakeAuthProvider = {
   isAuthenticated: false,
   signIn(callback: VoidFunction) {
-    fakeAuthProvider.isAuthenticated = true;
+    fakeAuthProvider.isAuthenticated = true
     setTimeout(callback, 100)
   },
   signOut(callback: VoidFunction) {
-    fakeAuthProvider.isAuthenticated = false;
+    fakeAuthProvider.isAuthenticated = false
     setTimeout(callback, 100)
   }
 }
