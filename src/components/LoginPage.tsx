@@ -3,13 +3,19 @@ import { useNavigate, useLocation } from "react-router-dom";
 
 import { useAuth } from "../context";
 
+type AuthType = {
+  from: {
+    pathname: string
+  }
+}
+
 function LoginPage() {
   let navigate = useNavigate()
   let location = useLocation()
   let auth = useAuth()
 
-  // let from = location.state?.from?.pathname || "/"
-  let from = "/"
+  let from = (location.state as AuthType)?.from?.pathname || "/"
+  // let from = "/"
 
   function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault()
