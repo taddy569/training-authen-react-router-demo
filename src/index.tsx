@@ -2,20 +2,22 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { BrowserRouter as Router } from "react-router-dom";
 import { Provider } from "react-redux";
+import { QueryClientProvider } from "react-query";
 
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { store } from "./redux/store";
-
-
+import { queryClient } from "./queries";
 
 ReactDOM.render(
   <React.StrictMode>
     <Provider store={store}>
-      <Router>
-        <App />
-      </Router>
+      <QueryClientProvider client={queryClient}>
+        <Router>
+          <App />
+        </Router>
+      </QueryClientProvider>
     </Provider>
   </React.StrictMode>,
   document.getElementById('root')
